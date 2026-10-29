@@ -7,7 +7,7 @@ public class DecoradorAuditoria extends DecoradorNotificador {
 
     @Override
     public void enviar(String mensaje) {
-        System.out.println("AUDITORIA: " + mensaje);
+        System.out.println("[DecoradorAuditoria] AUDITORIA: " + mensaje);
         super.enviar(mensaje);
     }
 }

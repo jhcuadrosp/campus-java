@@ -11,11 +11,9 @@ public class S13Demo01FacadeMain {
         InventarioService inventario = new InventarioService(stock);
         PagoService pago = new PagoService();
         NotificacionService notificacion = new NotificacionService();
-        ModuloCompras compras = new ModuloCompras(
-                new CheckoutFacade(inventario, pago, notificacion));
+        CheckoutFacade facade = new CheckoutFacade(inventario, pago, notificacion);
+        ModuloCompras compras = new ModuloCompras(facade);
         System.out.println(compras.comprar(aprobado));
-        System.out.println("Stock=" + inventario.consultarDisponibles()
-                + " pagos=" + pago.consultarIntentos()
-                + " avisos=" + notificacion.consultarEnviadas());
+        System.out.println("Stock=" + inventario.consultarDisponibles() + " pagos=" + pago.consultarIntentos() + " avisos=" + notificacion.consultarEnviadas());
     }
 }
